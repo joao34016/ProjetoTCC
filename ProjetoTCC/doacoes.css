@@ -1,0 +1,296 @@
+/* -----------------------------------------
+   Patas & Lar — Faça doações
+   Reaproveita tokens e componentes de style.css
+------------------------------------------ */
+
+.main-nav a.active-link {
+  color: var(--verde-700);
+  position: relative;
+}
+
+.main-nav a.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--amarelo-500);
+}
+
+.doacoes-container { max-width: 760px; }
+
+/* -------- introdução -------- */
+.doacoes-hero { padding: 64px 0 28px; }
+
+.doacoes-hero h1 {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+}
+
+.doacoes-hero h1 .highlight { color: var(--amarelo-600); }
+
+.doacoes-hero-sub {
+  margin: 16px 0 0;
+  font-size: 17px;
+  color: var(--texto-suave);
+  max-width: 56ch;
+}
+
+/* -------- card do formulário -------- */
+.doacoes-section {
+  padding: 8px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.doacoes-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 40px;
+}
+
+.doacoes-card h2 {
+  font-size: 22px;
+  margin: 0 0 24px;
+}
+
+.doacoes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.doacoes-erro {
+  background: var(--amarelo-100);
+  color: var(--verde-900);
+  border: 1px solid var(--amarelo-500);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+/* -------- tipo de doação -------- */
+.doacoes-tipo {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.doacoes-tipo legend,
+.doacoes-campo > span {
+  padding: 0;
+  margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--verde-900);
+}
+
+.tipo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.tipo-opcao {
+  position: relative;
+  cursor: pointer;
+}
+
+.tipo-opcao input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.tipo-opcao span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 8px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--texto-suave);
+  background: var(--bg);
+  border: 2px solid var(--linha);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.tipo-opcao em {
+  font-style: normal;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.tipo-opcao:hover span { border-color: var(--verde-600); }
+
+.tipo-opcao input:checked + span {
+  background: var(--verde-700);
+  border-color: var(--verde-700);
+  color: #fff;
+}
+
+.tipo-opcao input:focus-visible + span {
+  outline: 3px solid var(--verde-900);
+  outline-offset: 2px;
+}
+
+/* -------- campo de texto -------- */
+.doacoes-campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.doacoes-campo input {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--linha);
+  background: var(--bg);
+  color: var(--texto);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.doacoes-campo input::placeholder { color: #9AA593; }
+
+.doacoes-campo input:focus {
+  border-color: var(--verde-600);
+  background: #fff;
+}
+
+.doacoes-submit {
+  width: 100%;
+  justify-content: center;
+}
+
+/* -------- responsivo -------- */
+@media (max-width: 640px) {
+  .doacoes-card { padding: 28px 22px; }
+  .tipo-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* -------- tela de confirmação -------- */
+.conf-section { padding-top: 56px; }
+
+.conf-card { text-align: left; }
+
+.conf-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--amarelo-100);
+  border: 2px solid var(--amarelo-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.conf-card h1 {
+  font-size: clamp(26px, 3vw, 34px);
+  margin: 6px 0 8px;
+}
+
+.conf-sub {
+  margin: 0 0 24px;
+  color: var(--texto-suave);
+  font-size: 16px;
+}
+
+.conf-resumo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--amarelo-100);
+  border: 1px solid var(--amarelo-500);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 22px;
+}
+
+.conf-resumo-icone {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.conf-resumo-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+.conf-resumo-info small {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.conf-resumo-info strong {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--verde-900);
+  overflow-wrap: anywhere;
+}
+
+.conf-resumo-info span { font-size: 13px; font-weight: 700; color: var(--texto-suave); }
+
+/* cartão "Como entregar" */
+.ponto-card {
+  background: var(--verde-100);
+  border-radius: var(--radius-md);
+  padding: 22px;
+}
+
+.ponto-card h3 { font-size: 18px; margin: 0 0 6px; }
+
+.ponto-intro { margin: 0 0 16px; font-size: 14.5px; color: var(--texto-suave); }
+
+.ponto-lista { margin: 0 0 18px; display: flex; flex-direction: column; gap: 14px; }
+
+.ponto-lista dt {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+  margin-bottom: 2px;
+}
+
+.ponto-lista dd { margin: 0; font-size: 15px; font-weight: 700; color: var(--verde-900); }
+
+.ponto-lista dd small { font-weight: 600; color: var(--texto-suave); }
+
+.ponto-whats { text-decoration: none; width: 100%; }
+
+.conf-nota { margin: 20px 0 0; font-size: 14px; color: var(--texto-suave); }
+
+.conf-acoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.conf-btn { text-decoration: none; }
+
+@media (max-width: 640px) {
+  .conf-acoes { grid-template-columns: 1fr; }
+  .conf-resumo { flex-wrap: wrap; }
+}

@@ -1,0 +1,150 @@
+/* -----------------------------------------
+   Patas & Lar — login do administrador
+   Campinho no cabeçalho, ao lado do menu
+------------------------------------------ */
+
+.admin-widget {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid var(--linha);
+}
+
+/* -------- não logado: botão + dropdown -------- */
+.admin-toggle {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--verde-700);
+  background: var(--verde-100);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.admin-toggle:hover { background: #d8ecd6; }
+
+.admin-drop {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 30;
+  background: var(--bg-card);
+  border: 1px solid var(--linha);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+  width: 240px;
+}
+
+.admin-drop.aberto { display: block; }
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-form p.admin-titulo {
+  margin: 0 0 2px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-form label span {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--verde-900);
+}
+
+.admin-form input {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--linha);
+  background: var(--bg);
+  color: var(--texto);
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.admin-form input:focus {
+  border-color: var(--verde-600);
+  background: #fff;
+}
+
+.admin-form button {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 13.5px;
+  color: #fff;
+  background: var(--verde-700);
+  border: none;
+  border-radius: 999px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.admin-form button:hover { background: var(--verde-600); }
+
+.admin-erro {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #9A2F22;
+}
+
+/* -------- logado -------- */
+.admin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--verde-900);
+  background: var(--amarelo-100);
+  border: 1px solid var(--amarelo-500);
+  border-radius: 999px;
+  padding: 7px 14px;
+  white-space: nowrap;
+}
+
+.admin-sair {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--texto-suave);
+  text-decoration: none;
+}
+
+.admin-sair:hover { color: var(--verde-700); text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .admin-widget {
+    margin-left: auto;
+    padding-left: 0;
+    border-left: none;
+  }
+  .admin-drop {
+    right: -8px;
+  }
+}

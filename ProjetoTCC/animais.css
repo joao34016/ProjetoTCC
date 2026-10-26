@@ -1,0 +1,318 @@
+/* -----------------------------------------
+   Patas & Lar — Ver animais
+   Reaproveita tokens e componentes de style.css
+------------------------------------------ */
+
+.main-nav a.active-link {
+  color: var(--verde-700);
+  position: relative;
+}
+
+.main-nav a.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--amarelo-500);
+}
+
+/* -------- hero da listagem -------- */
+.animais-hero {
+  padding: 64px 0 32px;
+}
+
+.animais-hero h1 {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+}
+
+.animais-hero h1 .highlight {
+  color: var(--amarelo-600);
+}
+
+.animais-hero-sub {
+  margin: 16px 0 0;
+  font-size: 16px;
+  color: var(--texto-suave);
+  max-width: 52ch;
+}
+
+.animais-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.filtro-chip {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13.5px;
+  color: var(--texto-suave);
+  background: var(--bg-card);
+  border: 2px solid var(--linha);
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.filtro-chip:hover {
+  border-color: var(--verde-600);
+  color: var(--verde-700);
+}
+
+.filtro-chip.ativo {
+  background: var(--verde-700);
+  border-color: var(--verde-700);
+  color: #fff;
+}
+
+/* -------- grid de animais -------- */
+.animais-section {
+  padding: 8px 0 80px;
+}
+
+.animais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.animal-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+}
+
+.animal-item:hover {
+  transform: translateY(-4px);
+}
+
+.animal-item-foto {
+  position: relative;
+  height: 190px;
+  background: var(--verde-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-item-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animal-item-placeholder {
+  font-size: 56px;
+}
+
+.animal-item-porte {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(27, 58, 37, 0.85);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.animal-item-info {
+  padding: 18px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.animal-item-info h3 {
+  font-family: var(--font-display);
+  color: var(--verde-900);
+  font-size: 19px;
+  margin: 0;
+}
+
+.animal-item-raca {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.animal-item-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.animal-item-tags .tag {
+  background: var(--amarelo-100);
+  color: var(--verde-900);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* -------- botão de adotar -------- */
+.animal-item-adotar {
+  margin-top: auto;
+  padding: 0 18px 18px;
+}
+
+.animal-item-adotar-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* -------- estado vazio -------- */
+.animais-vazio {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.animais-vazio-icon {
+  font-size: 44px;
+}
+
+.animais-vazio h2 {
+  font-size: 22px;
+  margin: 4px 0 0;
+}
+
+.animais-vazio p {
+  color: var(--texto-suave);
+  font-size: 15px;
+  margin: 0 0 12px;
+  max-width: 40ch;
+}
+
+/* -------- responsivo -------- */
+@media (max-width: 640px) {
+  .animais-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+  .animal-item-foto {
+    height: 140px;
+  }
+}
+
+/* -------- formulário de filtros -------- */
+.filtro-form {
+  margin-top: 26px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 22px;
+}
+
+.filtro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.filtro-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filtro-campo span {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.filtro-campo input,
+.filtro-campo select {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--linha);
+  background-color: var(--bg);
+  color: var(--texto);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.filtro-campo select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A6B54' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.filtro-campo input:focus,
+.filtro-campo select:focus {
+  border-color: var(--verde-600);
+  background-color: #fff;
+}
+
+.filtro-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.filtro-btn {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+  background: var(--verde-700);
+  border: none;
+  border-radius: 999px;
+  padding: 11px 26px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.filtro-btn:hover { background: var(--verde-600); }
+
+.filtro-limpar {
+  font-weight: 800;
+  font-size: 13.5px;
+  color: var(--texto-suave);
+  text-decoration: underline;
+}
+
+.filtro-limpar:hover { color: var(--verde-700); }
+
+.filtro-resultado {
+  margin: 0 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}

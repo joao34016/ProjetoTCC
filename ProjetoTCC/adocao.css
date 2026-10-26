@@ -1,0 +1,223 @@
+/* -----------------------------------------
+   Patas & Lar — Formulário de adoção
+   Reaproveita tokens de style.css e os campos de login.css
+------------------------------------------ */
+
+.adocao-section {
+  padding: 56px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.adocao-container { max-width: 760px; }
+
+.adocao-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 44px 40px;
+}
+
+.adocao-card h1 {
+  font-size: clamp(26px, 3vw, 32px);
+  margin: 10px 0 8px;
+}
+
+.adocao-sub {
+  color: var(--texto-suave);
+  font-size: 15px;
+  margin: 0 0 26px;
+}
+
+/* resumo do animal escolhido */
+.adocao-animal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--amarelo-100);
+  border: 1px solid var(--amarelo-500);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 30px;
+}
+
+.adocao-animal-foto {
+  width: 68px;
+  height: 68px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  background: var(--verde-100);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.adocao-animal-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+.adocao-animal small {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.adocao-animal strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--verde-900);
+}
+
+.adocao-animal p {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+/* blocos numerados */
+.adocao-form { display: flex; flex-direction: column; gap: 34px; }
+
+.adocao-bloco { display: flex; flex-direction: column; gap: 18px; }
+
+.adocao-bloco > h2 {
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--linha);
+}
+
+.bloco-num {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--amarelo-500);
+  color: var(--verde-900);
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adocao-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.adocao-grid .form-field.full { grid-column: 1 / -1; }
+
+/* perguntas com alternativas */
+.pergunta {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.pergunta legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--verde-900);
+}
+
+.radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.radio-pill { position: relative; cursor: pointer; }
+
+.radio-pill input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.radio-pill span {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--texto-suave);
+  background: var(--bg);
+  border: 2px solid var(--linha);
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.radio-pill:hover span { border-color: var(--verde-600); }
+
+.radio-pill input:checked + span {
+  background: var(--verde-700);
+  border-color: var(--verde-700);
+  color: #fff;
+}
+
+.radio-pill input:focus-visible + span {
+  outline: 3px solid var(--verde-900);
+  outline-offset: 2px;
+}
+
+/* textarea */
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--linha);
+  background: var(--bg);
+  color: var(--texto);
+  outline: none;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.form-field textarea::placeholder { color: #9AA593; }
+
+.form-field textarea:focus {
+  border-color: var(--verde-600);
+  background: #fff;
+}
+
+/* declaração */
+.declaracao {
+  align-items: flex-start;
+  background: var(--verde-100);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--verde-900);
+}
+
+.declaracao input { margin-top: 3px; flex: none; }
+
+.adocao-submit { width: 100%; justify-content: center; }
+
+.adocao-voltar { margin-top: 22px; text-align: center; }
+
+/* mensagens */
+.msg-erro {
+  background: var(--amarelo-100);
+  color: var(--verde-900);
+  border: 1px solid var(--amarelo-500);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+
+@media (max-width: 640px) {
+  .adocao-card { padding: 32px 22px; }
+  .adocao-grid { grid-template-columns: 1fr; }
+}
